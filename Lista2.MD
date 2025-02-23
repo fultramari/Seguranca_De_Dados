@@ -1,7 +1,7 @@
 # Lista 2 de exercícios - Segurança de Dados
-## Exercício 
-### 1a) **Expressão para a decriptação**
-A decriptação de uma cifra de fluxo que utiliza XOR é feita de forma simples. Se a cifra é dada por `C_i = M_i ⊕ K_i`, a decriptação é dada por \( M_i = C_i \oplus K_i \). Isso funciona porque a operação XOR é invertível: \( (M_i \oplus K_i) \oplus K_i = M_i \), permitindo recuperar a mensagem original.
+## Exercício 1
+### a) **Expressão para a decriptação**
+A decriptação de uma cifra de fluxo que utiliza XOR é feita de forma simples. Se a cifra é dada por `C_i = M_i ⊕ K_i`, a decriptação é dada por `M_i = C_i ⊕ K_i`. Isso funciona porque a operação XOR é invertível: `(M_i ⊕ K_i) ⊕ K_i = M_i`, permitindo recuperar a mensagem original.
 
 ### b) **O que precisa ser feito para que a cifra seja one-time pad?**
 Para que a cifra seja um **one-time pad** (OTP), a chave precisa ser:
@@ -12,7 +12,7 @@ Para que a cifra seja um **one-time pad** (OTP), a chave precisa ser:
 Essas condições garantem a segurança do OTP, tornando-o incondicionalmente seguro.
 
 ### c) **Relação entre o tamanho da mensagem e da chave em uma cifra de bloco**
-Em uma cifra de bloco, a chave deve ser do tamanho suficiente para cifrar todos os blocos de dados. Se a mensagem tem \( m \) bits e a cifra opera em blocos de \( n \) bits, então a chave precisa ter pelo menos \( m \) bits, para garantir que não haja reutilização da chave entre os blocos.
+Em uma cifra de bloco, a chave deve ser do tamanho suficiente para cifrar todos os blocos de dados. Se a mensagem tem `m` bits e a cifra opera em blocos de `n` bits, então a chave precisa ter pelo menos `m` bits, para garantir que não haja reutilização da chave entre os blocos.
 
 ### d) **Dificuldades práticas de usar um one-time pad de fluxo**
 As principais dificuldades de usar um **one-time pad** de fluxo incluem:
