@@ -1,15 +1,13 @@
 # Lista de exercícios
 
-## 1) Considere os requisitos de confidencialidade, integridade, disponibilidade,
-## autenticidade, e responsabilização. Quais desses requisitos estão mais em risco em
-## um ataque dos tipos a seguir? Justifique.
-  a) Intromissão usando um sniffer?
+## 1) Considere os requisitos de confidencialidade, integridade, disponibilidade, autenticidade, e responsabilização. Quais desses requisitos estão mais em risco em um ataque dos tipos a seguir? Justifique.
+  ### a) Intromissão usando um sniffer?
   R: A confidencialidade é o requisito que mais sofre nessa ocasião, uma vez que os pacotes foram acessados por um interceptador que não deveria ter acesso á informação.
-  b) Negação de serviço de um servidor web?
+  ### b) Negação de serviço de um servidor web?
   R: Nesse caso, o requisito que mais sofre é a disponibilidade, visto que a negação de serviço torna o servidor indisponível e inacessível para os usuários.
-  c) Phishing se passando por uma página de banco falsa?
+  ### c) Phishing se passando por uma página de banco falsa?
   R: Nesse caso, a confidencialidade das informações dos clientes serão perdidas. Além disso, a autenticidade da página também é afetada.
-  d) Vírus de computador que altera executáveis do sistema operacional?
+  ### d) Vírus de computador que altera executáveis do sistema operacional?
   R: Nesse caso, a integridade dos executáveis sofre riscos.
 
 
