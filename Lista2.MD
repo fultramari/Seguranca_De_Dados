@@ -1,7 +1,7 @@
 # Lista 2 de exercícios - Segurança de Dados
 ## Exercício 
 ### 1a) **Expressão para a decriptação**
-A decriptação de uma cifra de fluxo que utiliza XOR é feita de forma simples. Se a cifra é dada por \( C_i = M_i \oplus K_i \), a decriptação é dada por \( M_i = C_i \oplus K_i \). Isso funciona porque a operação XOR é invertível: \( (M_i \oplus K_i) \oplus K_i = M_i \), permitindo recuperar a mensagem original.
+A decriptação de uma cifra de fluxo que utiliza XOR é feita de forma simples. Se a cifra é dada por `C_i = M_i ⊕ K_i`, a decriptação é dada por \( M_i = C_i \oplus K_i \). Isso funciona porque a operação XOR é invertível: \( (M_i \oplus K_i) \oplus K_i = M_i \), permitindo recuperar a mensagem original.
 
 ### b) **O que precisa ser feito para que a cifra seja one-time pad?**
 Para que a cifra seja um **one-time pad** (OTP), a chave precisa ser:
