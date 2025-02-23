@@ -2,6 +2,21 @@
 * Anotações da parte prática da disciplina Segurança de Dados, com o professor Rodrigo Augusto Cardoso, 2025.1
 
 ## Exercícios
+### 1. O que é uma máquina virtual?
+Uma **máquina virtual (VM)** é um software que emula um computador físico, permitindo rodar um **sistema operacional** completo em cima de outro, criando um ambiente isolado. VMs são usadas para testar sistemas, rodar múltiplos SOs em um único hardware e simular diferentes configurações.
+
+### 2. Por que o sistema operacional de uma máquina virtual pode ser um ambiente mais seguro do que o próprio sistema operacional da máquina física?
+O sistema operacional de uma **máquina virtual** é isolado do sistema físico, criando uma **camada de segurança adicional**. Se a VM for comprometida, o impacto não afeta diretamente o sistema operacional da máquina física, e também permite **testar malwares** ou configurações de segurança sem risco para o sistema principal.
+
+### 3. O que é um ambiente de contêineres?
+Um **ambiente de contêineres** isola aplicações e suas dependências em **containers** que compartilham o mesmo kernel do sistema operacional, mas operam de forma independente. Isso garante portabilidade, leveza e consistência entre ambientes de desenvolvimento, teste e produção.
+
+### 4. O que é o modo promíscuo de uma interface de rede? Quando é útil usá-lo?
+O **modo promíscuo** permite que uma interface de rede capture **todos os pacotes de dados** que circulam pela rede, não apenas aqueles destinados a ela. É útil para **monitoramento de rede**, **análise de tráfego** e **diagnóstico de problemas de rede**.
+
+### 5. Por que a máquina virtual do SeedLabs não deve ser usada para armazenar informações pessoais?
+A **máquina virtual do SeedLabs** é projetada para testes de segurança e **exploração de vulnerabilidades**, o que a torna insegura para armazenar dados pessoais. Além disso, ela pode ser configurada ou reiniciada frequentemente, o que pode resultar na **perda de dados** ou exposição a riscos de **segurança**.
+
 
 ### 6. O que faz o comando cd, pwd, ls?
 * Comando cd: O comando é uma abreviação para "Change Directory". O comando permite acessar um diretório/pasta do computador, e caso o nome da pasta não exista, uma nova é criada.
