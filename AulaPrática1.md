@@ -64,6 +64,37 @@ Para digitar comentários.
 
 
 ### 17. Para que servem os comandos “ps” e “top”?
-### 18. Para que serve o comando “grep””?
-### 19. Para que serve o “|” em “ps -ef | grep nano””?
+- **`ps`**: O comando `ps` (abreviação de **process status**) é usado para exibir informações sobre os processos que estão em execução no sistema. Ele mostra detalhes como o ID do processo (PID), o tempo de execução, o usuário que iniciou o processo e o comando utilizado. Existem várias opções para personalizar a saída, como `ps -f` para uma visão mais detalhada, ou `ps -ef` para listar todos os processos no sistema.
+  
+- **`top`**: O comando `top` exibe uma lista dinâmica dos processos que estão sendo executados no sistema. Ele fornece uma visão em tempo real dos processos e seus recursos, como CPU, memória, etc. Ele é mais interativo, permitindo que você interaja com a visualização e classifique ou mate processos diretamente dentro da interface.
+
+### 18. Para que serve o comando “grep”?
+- O comando **`grep`** (abreviação de **Global Regular Expression Print**) é usado para buscar texto dentro de arquivos ou a saída de outros comandos que correspondam a um padrão especificado. O `grep` utiliza expressões regulares para encontrar e mostrar as linhas que coincidem com o padrão fornecido. No exemplo `ps -ef | grep nano`, ele procura por processos cujo nome contenha "nano".
+
+### 19. Para que serve o “|” em “ps -ef | grep nano”?
+- O **`|`** (pipe) é um operador utilizado para **encadear comandos** no terminal. Ele pega a saída de um comando à esquerda e a passa como entrada para o comando à direita. No caso de `ps -ef | grep nano`, a saída do comando `ps -ef` (que lista todos os processos) é passada como entrada para o comando `grep nano`, que filtra e exibe apenas as linhas que contêm a palavra "nano", ou seja, os processos relacionados ao editor de texto `nano`.
+
 ### 20. Para que serve o comando “kill”?
+- O comando **`kill`** é utilizado para enviar um sinal a um processo em execução, normalmente com a intenção de **finalizá-lo** (terminar o processo). O uso mais comum do `kill` é passar o **PID (ID do processo)** de um processo que se deseja terminar. Por exemplo, `kill <PID>` envia um sinal padrão (SIGTERM) para o processo, solicitando sua finalização. Em alguns casos, se o processo não responder a SIGTERM, pode-se usar o sinal **SIGKILL** com o comando `kill -9 <PID>` para forçar a finalização.
+
+
+### 21. Para que serve o comando “man”?
+- O comando **`man`** (abreviação de **manual**) é usado para exibir o manual de outros comandos no sistema. Ele fornece uma documentação detalhada sobre como usar um comando, suas opções e exemplos de uso. Para sair da visualização do manual, você pode pressionar a tecla `Q`.
+
+### 22. Para que serve o comando “ping”?
+- O comando **`ping`** é usado para testar a conectividade de rede entre o seu computador e outro host (como um servidor ou um site). Ele envia pacotes de **ICMP Echo Request** para o host de destino e espera por uma resposta (**Echo Reply**), ajudando a verificar se o host está acessível e a medir o tempo de resposta da rede.
+
+### 23. Para que serve o comando “history”?
+- O comando **`history`** exibe uma lista de todos os comandos executados no terminal anteriormente. Ele ajuda a revisar o histórico de comandos e pode ser útil para repetir ou verificar comandos usados recentemente.
+
+### 24. Qual a diferença entre “>” e “>>”?
+- **`>`**: Usado para **sobrescrever** o conteúdo de um arquivo. Se o arquivo já existir, ele será substituído.
+  - Exemplo: `seq 1 10 > teste.txt` cria (ou sobrescreve) o arquivo `teste.txt`.
+  
+- **`>>`**: Usado para **adicionar** (append) conteúdo a um arquivo existente. Se o arquivo não existir, ele será criado.
+  - Exemplo: `seq 1 10 >> teste.txt` adiciona os números de 1 a 10 ao final de `teste.txt`.
+
+### 25. O que o comando “wc” faz?
+- O comando **`wc`** (abreviação de **word count**) é usado para contar o número de linhas, palavras e caracteres em um arquivo. Exemplo: `wc teste.txt` exibe a quantidade de linhas, palavras e caracteres presentes no arquivo `teste.txt`.
+
+
