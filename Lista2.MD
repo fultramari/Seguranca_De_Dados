@@ -21,11 +21,9 @@ As principais dificuldades de usar um **one-time pad** de fluxo incluem:
 3. **Escalabilidade**: A produção e distribuição de grandes quantidades de chaves para mensagens longas ou frequentes é um grande desafio, tornando o uso do OTP prático apenas em casos específicos.
 
 
-# Exercício 2
-Aqui está a explicação em formato Markdown, sem o uso de LaTeX, para facilitar a cópia:
-
+# Exercício 2 : Não vou fazer essa merda. Cornojob e não aprende nada.
 ---
-
+# Exercício 3
 ### Passo 1: Explorar a linearidade da cifra
 
 Dada a propriedade linear da cifra \( E_L \):
@@ -96,10 +94,3 @@ Onde \( A^{-1} \) é a matriz inversa de \( A \).
 
 ---
 
-### Conclusão
-
-A linearidade da cifra \( E_L \) permite que um adversário decifre qualquer texto cifrado sem conhecer a chave secreta \( k \), desde que ele tenha acesso a 128 pares de texto claro/texto cifrado escolhidos. Isso demonstra por que a não linearidade é essencial para a segurança de uma cifra de bloco: sem ela, a cifra se torna vulnerável a ataques baseados em álgebra linear.
-
---- 
-
-Agora você pode copiar e colar o texto acima diretamente!
