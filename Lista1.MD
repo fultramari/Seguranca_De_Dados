@@ -14,14 +14,10 @@
 
   ## 2) Leia a seção 1.2.1. – Cibersegurança (páginas 5 a 11) do minicurso “Ciência de Dados Aplicada à Cibersegurança: Teoria e Prática” (disponível para download noMoodle ou no link abaixo) https://doi.org/10.5753/sbc.15101.8.1
   ## Responda às perguntas abaixo baseado nesse texto:
-  ### a) Tradicionalmente, a cibersegurança era definida com base na tríade
-  Confidencialidade, Integridade e Disponibilidade (CIA). Por que essa
-  abordagem, centrada apenas na tríade CIA, é considerada limitada nos dias
-  de hoje?
+  ### a) Tradicionalmente, a cibersegurança era definida com base na tríade Confidencialidade, Integridade e Disponibilidade (CIA). Porque essa abordagem, centrada apenas na tríade CIA, é considerada limitada nos dias de hoje?
     R: O fato do ciberespaço hoje apresentar caráter político, social e econômico exigiu uma definição mais completa, que levasse em conta esses aspectos para uma definição mais precisas. A tríade CIA leva em conta apenas o aspecto tecnológgico e técnico da cibersegurança, sendo necessária uma visão mais ampla.
 
-  ### b) Defina os seguintes conceitos: Confidencialidade, Integridade,
-  Disponibilidade, Autenticidade, e Não repúdio (ou Responsabilização).
+  ### b) Defina os seguintes conceitos: Confidencialidade, Integridade, Disponibilidade, Autenticidade, e Não repúdio (ou Responsabilização).
   Confidencialidade: Apenas o remetente e o destinatário sabem da informação.
   Integridade: A informação não pode, em hipótese alguma, sofrer alterações/distorções.
   Disponibilidade: A informação deve estar disponível sempre que um usuário deseja acessar.
