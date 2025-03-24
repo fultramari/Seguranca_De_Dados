@@ -94,3 +94,74 @@ Onde \( A^{-1} \) é a matriz inversa de \( A \).
 
 ---
 
+
+5 - Suponha que você fez um algoritmo baseado em cifra de Feistel. Para deixá-lo mais
+seguro, o que você pode alterar em relação...
+
+### a) **Número de rodadas**
+**Alteração**: Aumentar o número de rodadas na cifra de Feistel.
+
+**Como melhora a segurança**: 
+O número de rodadas afeta diretamente a complexidade da cifra. Ao aumentar as rodadas, a cifra se aproxima mais de uma permutação e difusão total, o que torna mais difícil para um atacante realizar uma análise criptográfica eficaz (como análise diferencial ou linear). Mais rodadas aumentam o esforço necessário para realizar uma chave de recuperação ou uma análise de criptoanálise, dificultando o ataque.
+
+**Por que isso melhora a segurança?**: Aumentando as rodadas, o algoritmo passa a espalhar melhor a informação através do bloco de dados, tornando mais difícil para o atacante identificar padrões e extrair informações úteis sobre a chave ou o texto original.
+
+### b) **Tamanho do bloco**
+**Alteração**: Aumentar o tamanho do bloco.
+
+**Como melhora a segurança**: 
+Um bloco maior aumenta o número de combinações possíveis de blocos de texto. Com um bloco maior, a criptografia pode distribuir melhor a informação e a diferença entre as entradas e saídas de uma rodada é mais pronunciada. Além disso, o aumento do tamanho do bloco reduz a probabilidade de colisões (duas entradas diferentes gerando a mesma saída), o que dificulta ataques baseados em tentativas de correspondência de blocos.
+
+**Por que isso melhora a segurança?**: Com blocos maiores, a complexidade do algoritmo aumenta, tornando mais difícil realizar um ataque de força bruta ou de análise de blocos repetidos. O atacante teria que tentar um número muito maior de combinações para quebrar o sistema.
+
+### c) **Tamanho da chave**
+**Alteração**: Aumentar o tamanho da chave.
+
+**Como melhora a segurança?**
+Aumentar o tamanho da chave aumenta o número de possíveis chaves que podem ser utilizadas no algoritmo, tornando os ataques de força bruta mais difíceis. Se o tamanho da chave for muito pequeno, a chave pode ser quebrada rapidamente, mesmo com uma grande quantidade de poder computacional. Aumentar a chave torna o sistema mais robusto contra ataques desse tipo.
+
+**Por que isso melhora a segurança?**: Chaves maiores resultam em mais combinações possíveis, o que dificulta a tentativa de adivinhar a chave correta (força bruta). Quanto maior a chave, maior o esforço necessário para tentar todas as possibilidades.
+
+### d) **Função F**
+**Alteração**: Alterar a função de mistura \( F \) usada na cifra de Feistel (como a função de expansão, substituição e permutação).
+
+**Como melhora a segurança?**: 
+A função \( F \) é crucial para criar a confusão e a difusão no algoritmo. Ao tornar a função \( F \) mais complexa e não linear, você aumenta a dificuldade de ataques como análise linear ou diferencial. A ideia é garantir que cada bit do texto cifrado dependa de todos os bits da chave e do texto claro de maneira não trivial. A função \( F \) é onde ocorre a maioria da "mistura" de dados, então, uma função forte e bem projetada é essencial para segurança.
+
+**Por que isso melhora a segurança?**: Uma função \( F \) mais robusta torna o algoritmo mais resistente a ataques de criptoanálise. Quanto mais difícil for encontrar padrões ou relações simples entre a entrada e a saída da função \( F \), mais seguro será o algoritmo como um todo.
+
+### e) **Efeitos indesejados das melhorias de segurança**
+Embora o aumento da segurança através desses parâmetros seja benéfico, há efeitos colaterais que podem surgir:
+
+1. **Desempenho**: 
+   - **Aumento do número de rodadas** ou do **tamanho do bloco** geralmente resulta em um aumento significativo no tempo de processamento, o que pode ser um problema em sistemas com recursos limitados (como dispositivos móveis ou em tempo real).
+   - Aumentar o **tamanho da chave** também pode impactar o desempenho, especialmente quando se precisa realizar operações de chave grandes ou de gerenciamento de chaves em grandes volumes de dados.
+   
+2. **Complexidade de implementação**:
+   - Alterar a **função \( F \)** pode aumentar a complexidade da implementação e da verificação de correção do algoritmo. Funções mais complexas podem ser mais difíceis de testar e certificar que estão seguras, além de aumentar o custo computacional.
+
+3. **Compatibilidade**:
+   - Se o sistema criptográfico for usado em uma rede ou em dispositivos com recursos limitados, aumentar parâmetros como o **tamanho do bloco** ou **o número de rodadas** pode causar problemas de compatibilidade, já que sistemas legados podem não ser capazes de processar blocos maiores ou funções mais complexas de forma eficiente.
+
+Em resumo, embora aumentar a segurança através desses parâmetros melhore a resistência contra ataques, pode haver trade-offs, especialmente em termos de desempenho e implementação.
+
+
+
+## 6) Para uma cifra de bloco com uma chave de tamanho n bits, quantas tentativas um ataque de força bruta precisa, em média, para ter sucesso? Explique.
+Para uma cifra de bloco com uma chave de tamanho **n bits**, um ataque de força bruta precisaria de, em média, **2^(n-1)** tentativas para ter sucesso. Isso ocorre porque, em um ataque de força bruta, todas as possíveis combinações de chaves são testadas até que a correta seja encontrada. Como há **2^n** possíveis chaves (já que cada bit pode ser 0 ou 1), e o ataque testa as chaves de forma aleatória ou sequencial, em média, ele precisará testar metade do espaço de chaves (2^(n-1)) antes de encontrar a chave correta. Por exemplo, para uma chave de 128 bits, seriam necessárias, em média, 2^127 tentativas. Esse valor exponencial é o que torna o ataque de força bruta inviável para chaves grandes em termos de tempo e recursos computacionais.
+
+## 7) Com o modo ECB, se houver um erro em um bloco do texto cifrado transmitido, somente o de texto claro correspondente é afetado; porém, no modo CBC, esse erro se propaga. Por exemplo, um erro no C1 transmitido (figuras abaixo) obviamente adultera P1 e P2.
+
+a) Algum bloco além de P2 é afetado? Suponha que haja um bit errado na versão fonte de P1. Por quantos blocos
+de texto cifrado esse erro é propagado? Qual é o efeito no receptor?
+No modo CBC, um erro em C1 afeta diretamente P1 e P2, pois a decifra de P1 depende de C1 e P2 depende de C1. Se houver um erro em P1 antes de ser cifrado, ele causará um erro em C1 e propagará para C2, afetando tanto P1 quanto P2 no receptor. O erro se propaga para dois blocos: C1 e C2. O receptor decifrará a mensagem com erros.
+
+
+| Modo de Operação | a) Gera blocos cifrados iguais para blocos de texto claro iguais? | b) Permite paralelização da encriptação? | c) Permite paralelização da decriptação? | d) Como a decriptação é afetada por um erro de bit? |
+|------------------|------------------------------------------------------------------|------------------------------------------|-------------------------------------------|-----------------------------------------------------|
+| **ECB**          | Sim, gera blocos cifrados iguais para blocos de texto claro iguais, pois cada bloco é cifrado independentemente. | Não, pois os blocos são cifrados independentemente. | Não, a decriptação de blocos depende da ordem dos blocos. | O erro afeta apenas o bloco correspondente e não propaga para outros blocos. |
+| **CBC**          | Não, pois cada bloco depende do bloco anterior devido ao encadeamento com o vetor de inicialização (IV). | Não, a encriptação depende de blocos anteriores, tornando a paralelização difícil. | Não, a decriptação de um bloco depende do bloco anterior, o que impede a paralelização. | Um erro em um bloco afeta o bloco de texto claro correspondente e o próximo bloco. |
+| **CFB**          | Não, o XOR com o bloco anterior faz com que o cifrado de blocos iguais seja diferente. | Sim, pois o fluxo de chave pode ser calculado separadamente para cada bloco. | Não, pois a decriptação de um bloco depende do anterior, impedindo a paralelização. | O erro afeta o bloco correspondente e pode propagar para o próximo bloco. |
+| **OFB**          | Não, o fluxo de chave é gerado independentemente do texto claro, o que evita blocos cifrados iguais. | Sim, porque o fluxo de chave pode ser pré-computado e os blocos podem ser cifrados paralelamente. | Sim, como a decriptação usa o mesmo fluxo de chave, a paralelização é possível. | O erro afeta apenas o bloco correspondente e não propaga para os outros blocos. |
+| **CTR**          | Não, pois o contador é incrementado para cada bloco, gerando blocos cifrados diferentes, mesmo para blocos de texto claro iguais. | Sim, pois cada bloco é cifrado com um contador único, permitindo a paralelização. | Sim, como cada bloco usa um contador independente, a decriptação pode ser paralelizada. | O erro afeta apenas o bloco correspondente e não se propaga. |
+
