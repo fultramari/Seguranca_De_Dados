@@ -157,6 +157,7 @@ de texto cifrado esse erro é propagado? Qual é o efeito no receptor?
 No modo CBC, um erro em C1 afeta diretamente P1 e P2, pois a decifra de P1 depende de C1 e P2 depende de C1. Se houver um erro em P1 antes de ser cifrado, ele causará um erro em C1 e propagará para C2, afetando tanto P1 quanto P2 no receptor. O erro se propaga para dois blocos: C1 e C2. O receptor decifrará a mensagem com erros.
 
 
+## 8
 | Modo de Operação | a) Gera blocos cifrados iguais para blocos de texto claro iguais? | b) Permite paralelização da encriptação? | c) Permite paralelização da decriptação? | d) Efeito de um erro de bit na decriptação |
 |------------------|-------------------------------------------------------------|----------------------------------------|----------------------------------------|------------------------------------------|
 | **ECB**          | Sim, pois cada bloco é cifrado independentemente.           | Sim, pois cada bloco é cifrado de forma independente. | Sim, pois cada bloco é decifrado de forma independente. | Erro afeta apenas o bloco com o erro. |
@@ -165,3 +166,86 @@ No modo CBC, um erro em C1 afeta diretamente P1 e P2, pois a decifra de P1 depen
 | **OFB**          | Não, pois usa um keystream gerado a partir do vetor de inicialização (IV). | Não, pois o keystream é gerado sequencialmente. | Não, pois o keystream é gerado sequencialmente. | Erro afeta apenas o bit correspondente, sem propagação. |
 | **CTR**          | Não, pois usa um contador único para cada bloco.               | Sim, pois cada bloco pode ser cifrado independentemente usando o contador. | Sim, pois cada bloco pode ser decifrado independentemente usando o contador. | Erro afeta apenas o bit correspondente, sem propagação. |
 
+## 9 Considere uma cifra simétrica de bloco que usa uma chave de tamanho K e bloco de
+tamanho N. Responda às seguintes questões:
+
+Vamos responder a cada uma das questões:
+
+---
+
+### a) Quantos blocos de texto claro diferentes existem?
+O número de blocos de texto claro diferentes é determinado pelo tamanho do bloco \( N \). Como cada bloco é composto por \( N \) bits, e cada bit pode assumir dois valores (0 ou 1), o número total de blocos de texto claro diferentes é:
+
+\[
+2^N
+\]
+
+---
+
+### b) Quantas permutações de blocos de texto claro para blocos de texto cifrado são teoricamente possíveis?
+Uma cifra de bloco pode ser entendida como uma função de substituição que mapeia cada bloco de texto claro para um bloco de texto cifrado. Como há \( 2^N \) blocos de texto claro e \( 2^N \) blocos de texto cifrado, o número de permutações possíveis é o número de maneiras de arranjar \( 2^N \) elementos, ou seja, o fatorial de \( 2^N \):
+
+\[
+(2^N)!
+\]
+
+---
+
+### c) Qual é a ordem de grandeza do tamanho da chave (K) necessária para representar todas essas permutações?
+Para representar todas as permutações possíveis, a chave precisa ser grande o suficiente para identificar cada uma das \( (2^N)! \) permutações. O tamanho da chave \( K \) deve ser pelo menos o logaritmo na base 2 do número de permutações:
+
+\[
+K \geq \log_2((2^N)!)
+\]
+
+Usando a aproximação de Stirling para \( \log_2(n!) \):
+
+\[
+\log_2(n!) \approx n \log_2 n - n \log_2 e + \mathcal{O}(\log_2 n)
+\]
+
+Substituindo \( n = 2^N \):
+
+\[
+\log_2((2^N)!) \approx 2^N \log_2(2^N) - 2^N \log_2 e + \mathcal{O}(\log_2(2^N))
+\]
+
+Simplificando:
+
+\[
+\log_2((2^N)!) \approx 2^N \cdot N - 2^N \cdot \log_2 e + \mathcal{O}(N)
+\]
+
+Portanto, a ordem de grandeza do tamanho da chave \( K \) é:
+
+\[
+K \approx 2^N \cdot N
+\]
+
+---
+
+### d) Considere o AES usando um bloco de 128 bits e uma chave com tamanho de 256 bits. A partir da resposta do item anterior, essa chave permite mapear todas as permutações de blocos possíveis? Por quê?
+No caso do AES com blocos de 128 bits (\( N = 128 \)) e uma chave de 256 bits (\( K = 256 \)):
+
+1. **Número de permutações possíveis**:
+   - O número de permutações é \( (2^{128})! \).
+   - Usando a aproximação de Stirling, o tamanho da chave necessário para representar todas as permutações seria:
+
+     \[
+     K \approx 2^{128} \cdot 128
+     \]
+
+     Isso é muito maior do que \( 2^{256} \), que é o número de chaves possíveis com 256 bits.
+
+2. **Conclusão**:
+   - Uma chave de 256 bits **não** é suficiente para mapear todas as permutações possíveis de blocos de 128 bits.
+   - O número de permutações possíveis (\( (2^{128})! \)) é astronomicamente maior do que o número de chaves possíveis com 256 bits (\( 2^{256} \)).
+   - Portanto, o AES com chave de 256 bits não cobre todas as permutações possíveis, mas ainda é considerado seguro porque o número de chaves é grande o suficiente para resistir a ataques de força bruta e outras técnicas criptográficas.
+
+---
+
+### Resumo:
+- **a)**: \( 2^N \) blocos de texto claro diferentes.
+- **b)**: \( (2^N)! \) permutações possíveis.
+- **c)**: \( K \approx 2^N \cdot N \).
+- **d)**: Uma chave de 256 bits não é suficiente para mapear todas as permutações de blocos de 128 bits, mas o AES ainda é seguro devido ao tamanho da chave e ao design do algoritmo.
