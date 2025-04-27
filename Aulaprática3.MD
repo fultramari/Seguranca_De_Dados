@@ -1,5 +1,5 @@
 ## Tarefa 1: 
-
+```
 #include <stdio.h>
 #include <openssl/bn.h>
 
@@ -59,9 +59,10 @@ int main() {
     return 0;
 }
 
-
+```
 
 ## TAREFA 2
+```
 #include <stdio.h>
 #include <openssl/bn.h>
 
@@ -125,7 +126,11 @@ int main() {
     return 0;
 }
 
+```
+
+
 ## Copiando de novo a tarefa 1 por remorso
+```
 #include <stdio.h>
 #include <openssl/bn.h>
 
@@ -180,6 +185,7 @@ int main() {
     BN_free(p_minus_1);
     BN_free(q_minus_1);
     BN_free(totiente);
+```
     BN_CTX_free(ctx);
 
     return 0;
