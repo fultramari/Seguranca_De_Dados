@@ -45,7 +45,28 @@ Apenas o ECB e o CBC usaram padding, isso por serem cifras de bloco. Como CFB e 
 
 ### 9) O que aconteceu ao cifrar o mesmo texto com IVs iguais? E IVs diferentes? Por que
 isso acontece?
+Cifrando o mesmo texto com IVs iguais, foram obtidos textos criptados iguais. Com IV'S diferentes, os textos criptados são distintos. Isso ocorre por conta do mecanismo do CBC, que antes de criptografar, realiza XOR do IV com o texto claro. Isso faz com que, com o mesmo IV, o XOR tenha o mesmo resultado. Não só isso, mas Mensagens iguais com o mesmo IV serão criptografadas e serão exatamente iguais, o que pode ser problemático. Por isso é importante sempre usar IV's distintos, pois com essa diferença, mensagens iguais são criptadas de formas diferentes.
 
 ### 10) Bob enviou “Yes” ou “No” na primeira mensagem?
+R: Bob enviou "Yes" na primeira mensagem.
 
 ### 11) Escreva a equação que representa a mensagem enviada ao oráculo para descobrir a resposta. Explique cada termo da equação e por que o ataque funciona.
+R: * Uma primeira informação importante é que foi restringido a possibilidade de resposta. Ou era "Sim", ou "Não". Essa redução de escopo que viabiliza a tentativa e erro.
+  * Saber os vetores de inicialização é um segundo fator que possibilita a descoberta.
+  * Ter a mensagem cifrada do bob é o terceiro fator que possibilidade a descoberta.
+
+#### RESOLUÇÃO: Vamos considerar, por chute, que Bob escreveu "Sim". 
+1) Considere C1 a mensagem encripatada do Bob, IV o vetor utilizado por ele, P2 a mensagem que vamos passar para o oráculo e IV' nosso vetor de inicialização. A equação que possibilita descobrir é:
+(P2 ⊕ IV') ⊕ IV
+
+2)  Como essa mensagem toda vai passar pelo processo CBC, ela sofrerá XOR com o IV' e depois será criptografada usando AES:
+AES(Mensagem ⊕ IV') = AES( ((P2 ⊕ IV') ⊕ IV) ⊕ IV') = AES (P2 ⊕ IV).
+
+3) Considere o cenário em que, por chute, acertamos que Bob escreveu "Sim". Perceba que nesse caso, a mensagem P2 será criptografada e ficará idêntica ao texto criptografado C1 de Bob:
+C1 = AES(P1 ⊕ IV)
+C2 = AES( P2 ⊕ IV' ⊕ IV ⊕ IV') = AES (P2 ⊕ IV). 
+
+Partindo da ideida de que P1 = P2, logo:
+AES(P1 ⊕ IV) = AES (P2 ⊕ IV), e portanto, as mensagens criptografadas serão iguais.
+
+
