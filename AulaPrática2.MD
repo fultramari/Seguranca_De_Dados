@@ -63,9 +63,9 @@ R: * Uma primeira informação importante é que foi restringido a possibilidade
 AES(Mensagem ⊕ IV') = AES( ((P2 ⊕ IV') ⊕ IV) ⊕ IV') = AES (P2 ⊕ IV).
 
 3) Considere o cenário em que, por chute, acertamos que Bob escreveu "Sim". Perceba que nesse caso, a mensagem P2 será criptografada e ficará idêntica ao texto criptografado C1 de Bob:  
-C1 = AES(P1 ⊕ IV)  
-C2 = AES( P2 ⊕ IV' ⊕ IV ⊕ IV') = AES (P2 ⊕ IV).  
-Partindo da ideida de que P1 = P2, logo:  
-AES(P1 ⊕ IV) = AES (P2 ⊕ IV), e portanto, as mensagens criptografadas serão iguais.
+  C1 = AES(P1 ⊕ IV)  
+  C2 = AES( P2 ⊕ IV' ⊕ IV ⊕ IV') = AES (P2 ⊕ IV).  
+  Partindo da idei da de que P1 = P2, logo:  
+  AES(P1 ⊕ IV) = AES (P2 ⊕ IV), e portanto, as mensagens criptografadas serão iguais.
 
 
