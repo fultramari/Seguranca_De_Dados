@@ -1,4 +1,4 @@
-##Perguntas
+##P erguntas
 ### 1) Qual comando decifra o arquivo “criptografado.txt” gerado pelo comando mostrado nesta tarefa?
 R: Para decifrar o arquivo, basta usar o comando mostrado no exercício como base. Contudo, para decriptografar, o arquivo de entrada será "criptografado.txt", o parâmetro -e de encriptação se torna -d de de criptação, e o arquivo de saída será "decriptografado.txt".Desse modo, teremos:
 ```
