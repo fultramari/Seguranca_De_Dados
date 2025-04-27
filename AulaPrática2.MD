@@ -36,9 +36,12 @@ Já no modo CBC, por ter maior difusão pelo bloco anterior participar do proces
 
 ### 7) Quais foram os caracteres de preenchimento usados para cada um dos arquivos?
 Quantos blocos os arquivos cifrados têm?
+Após o preenchimento, os arquivos cifrados de 5 e 10 bytes ficaram com 16 bytes (1 bloco). A escolha do caractere de preenchimento é baseada em quantos bytes faltam para completar 1 bloco. No caso de 5 bytes, como faltam 11 bytes, o caractere de preenchimento é 0B, que é onze em hexadecimal. No caso de 10 bytes, como faltam 6 bytes, o caractere de preenchimento é 06, que é 6 em hexadecimal.
+O caso de 16bytes é particular. Apesar de ter um bloco fechado, um bloco a mais é criado por padrão. Como faltam 16 bytes, que é um bloco completo, o segundo bloco é preenchido com 10, que é 16 em hexadecimal.
 
 ### 8) Considere o ECB, CBC, CFB, e OFB. Quais deles usam preenchimento? E quais
 não usam?
+Apenas o ECB e o CBC usaram padding, isso por serem cifras de bloco. Como CFB e OFB são cifras de fluxo, não utilizam padding.
 
 ### 9) O que aconteceu ao cifrar o mesmo texto com IVs iguais? E IVs diferentes? Por que
 isso acontece?
